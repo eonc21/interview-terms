@@ -6,15 +6,16 @@ type CategoryProps = {
     title: String,
     description: String,
     image: String,
+    handleClick: () => void,
 }
 
-export default function Category({ title, description, image }: CategoryProps) {
+export default function Category({ title, description, image, handleClick }: CategoryProps) {
     
     return (
-        <div className={styles.container} style={{backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.3) 100%), url(${image})`}}>
-            <div className={styles.textContainer}>
+        <div className={styles.container} onClick={handleClick} style={{backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.3) 100%), url(${image})`}}>
+            <div className={styles.textContainer} >
 
-            <text>
+            <text >
             {title}
 
             </text>

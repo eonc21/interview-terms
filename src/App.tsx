@@ -1,19 +1,46 @@
 import React from 'react';
 import './App.css';
 import { CategoryList } from './components/CategoryList';
-import Collapsable from './components/Collapsable';
+import ObjectOrientedProg from './components/ObjectOrientedProg';
 import  Title  from './components/Title';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  withRouter,
+} from "react-router-dom";
 
-function App() {
+
+const Home = () => {
   return (
     <div className="App">
       <Title text="Interview Preparation" />
         <CategoryList />
 
-        <div className="terms">
+        {/* <div className="terms">
+        <Collapsable />
+        <Collapsable />
+        <Collapsable />
+        <Collapsable />
+        <Collapsable />
             <Collapsable />
-        </div>
+        </div> */}
     </div>
+  )
+
+}
+
+function App() {
+  return (
+    <Router>
+      <Switch>
+      <Route exact path="/" component={Home} />
+      <Route path="/oop" component={withRouter(ObjectOrientedProg)}  />
+       
+    </Switch>
+
+    </Router>
+   
   );
 }
 
