@@ -1,0 +1,13 @@
+.title {
+    font-size: 4vw;
+    margin: 100px;
+    border: 8px solid black;
+    width: 60%;
+    align-self: center;
+
+}
+
+h4 {
+    margin: 45px;
+    font-weight: 400;
+}

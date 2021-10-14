@@ -1,5 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;1,200;1,300;1,400&display=swap');
+
 .App {
   text-align: center;
+  display: flex;
+  font-family: "Poppins", sans-serif;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #fafbff;
+
+}
+
+.terms {
+  height: 100vh;
+  display: flex;
+  width: 100vw;
+  flex-direction: column;
+  justify-content: center;
+  /* align-content: center; */
 }
 
 .App-logo {
