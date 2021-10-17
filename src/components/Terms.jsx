@@ -14,9 +14,11 @@ export default function Terms() {
         <div className="App">
             <Title text={terms[0].category ==="OOP" ? "Object Oriented Programming" : terms[0].category }/>
             <div className="container">
-            {terms.flatMap(term =>
-                <Collapsable term={term.term}
-                explanation={term.explanation}/>)}
+            {terms.flatMap((term, index) =>
+                <Collapsable key={term.id} 
+                id={index + 1} term={term.term}
+                explanation={term.explanation}/>
+                )}
             </div>
             
           

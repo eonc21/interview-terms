@@ -6,11 +6,14 @@ import './css/Collapsable.css';
 interface Props {
     term: string,
     explanation: string,
+    id: string,
 }
 
-export default function Collapsable({term, explanation}: Props): ReactElement {
+export default function Collapsable({term, explanation, id}: Props): ReactElement {
     return (
         <div className="small">
+            <p className="text">{id}.</p>
+            
             <Collapsible trigger={term}>
             <p>
                 {explanation}

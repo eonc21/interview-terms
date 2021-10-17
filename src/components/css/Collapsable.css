@@ -3,30 +3,45 @@
 
 .container {
     display: flex;
-  font-family: "Poppins", sans-serif;
-
+    font-family: "Poppins", sans-serif;
     justify-content: center;
     /* width: 100%; */
     /* flex-direction: row; */
     flex-wrap: wrap;
 }
 
+.text {
+    width: 25px;
+    font-size: 2vw;
+    height: 25px;
+    color: black;
+}
+
+p {
+    margin: 40px;
+    font-size: 1.25vw;
+}
+
 .small {
     display: flex;
     width:70%;
     align-self: center;
-    text-transform: uppercase;	
-    font-weight: bold;
     letter-spacing: 1px;
     flex-direction: row;
-    
 
+}
+
+.Collapsible__contentOuter {
+    /* margin: 20px; */
 }
 
 .Collapsible
 {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-self: center;
     background: rgb(253, 253, 253);
-
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -34,16 +49,20 @@
     width: 100%;
     text-align: center;
     /* align-self: center; */
-    margin: 20px;
-    border: 2px rgb(255, 145, 0) solid;
+    margin: 60px;
+    border: 2px rgb(224, 101, 1) solid;
 }
 
 .Collapsible__trigger {
     /* border-radius: 5px; */
     /* border-radius: 30px; */
     margin: 5px;
-color: white;
+    font-weight: bold;
+
+    color: white;
     display: flex;
+    text-transform: uppercase;	
+
     justify-content: center;
     align-items: center;
     font-size: 1.5vw;

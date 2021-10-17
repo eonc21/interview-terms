@@ -51,7 +51,7 @@ export const CategoryList = (props: CategoryListProps) => {
                     description: "Terminology related to OOP, inheritance, etc.",
                     image: "https://res.cloudinary.com/dbdtfa9qb/image/upload/v1634247750/interview-prep/joshua-aragon-BMnhuwFYr7w-unsplash_tk1pcu.jpg",
                     onClick() {
-                        fetch('http://localhost:3001/interview-prep/api/terms/OOP')
+                        fetch('https://interview-preparation-cards.herokuapp.com/OOP')
                             .then(response => response.json())
                             .then(data =>{
                                 setTerms(data)
@@ -76,7 +76,7 @@ export const CategoryList = (props: CategoryListProps) => {
                     description: "Terminology related to OOP, inheritance, etc.",
                     image: "https://res.cloudinary.com/dbdtfa9qb/image/upload/v1634247749/interview-prep/christian-wiediger-8WFcelVBOoI-unsplash_dmxgkn.jpg",
                     onClick() {
-                        fetch('http://localhost:3001/interview-prep/api/terms/Hardware')
+                        fetch('https://interview-preparation-cards.herokuapp.com/Hardware')
                             .then(response => response.json())
                             .then(data =>{
                                 setTerms(data)
