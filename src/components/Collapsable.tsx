@@ -4,21 +4,21 @@ import './css/Collapsable.css';
 
 
 interface Props {
-    
+    term: string,
+    explanation: string,
 }
 
-export default function Collapsable({}: Props): ReactElement {
+export default function Collapsable({term, explanation}: Props): ReactElement {
     return (
         <div>
-            <Collapsible trigger="Inheritance">
+            <Collapsible trigger={term}>
             <p>
-                This is the collapsible content. It can be any element or React
-                component you like.
+                {explanation}
             </p>
-            <p>
+            {/* <p>
                 It can even be another Collapsible component. Check out the next
                 section!
-            </p>
+            </p> */}
     </Collapsible>
         </div>
     )

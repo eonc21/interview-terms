@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import { CategoryList } from './components/CategoryList';
-import ObjectOrientedProg from './components/ObjectOrientedProg';
+import ObjectOrientedProg from './components/Terms.jsx';
 import  Title  from './components/Title';
 import {
   BrowserRouter as Router,
@@ -35,7 +35,7 @@ function App() {
     <Router>
       <Switch>
       <Route exact path="/" component={Home} />
-      <Route path="/oop" component={withRouter(ObjectOrientedProg)}  />
+      <Route path="/terms" component={withRouter(ObjectOrientedProg)}  />
        
     </Switch>
 

@@ -1,97 +1,133 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import { useRef, useLayoutEffect } from 'react'
 import Category from './Category'
 import { useHistory } from 'react-router-dom'
-
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link
-  } from "react-router-dom";
 import styles from './css/CategoryList.module.css'
 
-interface CategoryListProps {
-    
+interface CategoryProvider {
+    title: String, 
+    terms?: Array<Object>,
+    description: String,
+    image: String,
+    onClick: () => void,
 }
-const onClick = () => {
-    alert("yooo")
+
+interface TermProvider {
+    term: string,
+    explanation: String,
+}
+
+interface CategoryListProps {
+
 }
 
 
 export const CategoryList = (props: CategoryListProps) => {
+    const firstUpdate = useRef(true);
+
     const history = useHistory();
-    const categories : {title: String, description: String, image: String, onClick: () => void}[] = 
-    [ 
-        {
-            title: "Object Oriented Programming",
-            description: "Terminology related to OOP, inheritance, etc.",
-            image: "https://res.cloudinary.com/dbdtfa9qb/image/upload/v1634247750/interview-prep/joshua-aragon-BMnhuwFYr7w-unsplash_tk1pcu.jpg",
-            onClick() {
-                history.push({
-                    pathname: `/oop`, 
-                    // state: 
-            });
-            }
-        },
+    const [categories, setCategories] = useState<CategoryProvider[]>([])
+    const [terms, setTerms] = useState<TermProvider[]>([])
 
-        {
-            title: "Data Structures",
-            description: "Terminology related to OOP, inheritance, etc.",
-            image: "https://res.cloudinary.com/dbdtfa9qb/image/upload/v1634247747/interview-prep/image-21_gyw1v6.png",
-            onClick() {
-                alert("yooo")
-            }
-        },
+    useLayoutEffect(() => {
+        if (firstUpdate.current) {
+            firstUpdate.current = false
+            return;
+        }
+        history.push({
+            pathname: `/terms`, 
+            state: { terms: terms }
+        });
+        console.log("i am a dumbass")
+    }, [terms])
 
-        {
-            title: "Hardware and low-level",
-            description: "Terminology related to OOP, inheritance, etc.",
-            image: "https://res.cloudinary.com/dbdtfa9qb/image/upload/v1634247749/interview-prep/christian-wiediger-8WFcelVBOoI-unsplash_dmxgkn.jpg",
-            onClick() {
-                alert("yooo")
-            }
-        },
+    useEffect(() => {
 
-        {
-            title: "DevOps",
-            description: "Terminology related to OOP, inheritance, etc.",
-            image: "https://res.cloudinary.com/dbdtfa9qb/image/upload/v1634247744/interview-prep/01_DevSecOps-DevSecOps-1-scaled-e1624558766799_q36w7w.jpg",
-            onClick() {
-                alert("yooo")
-            }
-        },
+        setCategories(
+            [ 
+                {
+                    title: "Object Oriented Programming",
+                    
+                    description: "Terminology related to OOP, inheritance, etc.",
+                    image: "https://res.cloudinary.com/dbdtfa9qb/image/upload/v1634247750/interview-prep/joshua-aragon-BMnhuwFYr7w-unsplash_tk1pcu.jpg",
+                    onClick() {
+                        fetch('http://localhost:3001/interview-prep/api/terms/OOP')
+                            .then(response => response.json())
+                            .then(data =>{
+                                setTerms(data)
+                                
+                                console.log(data)
+                            })
+                            .catch(err => console.error(err));
+                        
 
-       
-
-        {
-            title: "Data",
-            description: "Terminology related to OOP, inheritance, etc.",
-            image: "https://res.cloudinary.com/dbdtfa9qb/image/upload/v1634247746/interview-prep/franki-chamaki-z4H9MYmWIMA-unsplash_urblp2.jpg",
-            onClick() {
-                alert("yooo")
-            }
-        },
-
-        {
-            title: "Databases",
-            description: "Terminology related to OOP, inheritance, etc.",
-            image: "https://res.cloudinary.com/dbdtfa9qb/image/upload/v1634247744/interview-prep/2135-database_management_software_vtjswv.webp",
-            onClick() {
-                alert("yooo")
-            }
-        },
-
-        {
-            title: "Functional programming",
-            description: "Terminology related to OOP, inheritance, etc.",
-            image: "https://res.cloudinary.com/dbdtfa9qb/image/upload/v1634249796/interview-prep/lambda_hh1hxp.jpg",
-            onClick() {
-                alert("yooo")
-            }
-        },
-
-    ]
-
+                    }
+                },
+        
+                {
+                    title: "Data Structures",
+                    description: "Terminology related to OOP, inheritance, etc.",
+                    image: "https://res.cloudinary.com/dbdtfa9qb/image/upload/v1634247747/interview-prep/image-21_gyw1v6.png",
+                    onClick() {
+                        alert("yooo")
+                    }
+                },
+        
+                {
+                    title: "Hardware and low-level",
+                    description: "Terminology related to OOP, inheritance, etc.",
+                    image: "https://res.cloudinary.com/dbdtfa9qb/image/upload/v1634247749/interview-prep/christian-wiediger-8WFcelVBOoI-unsplash_dmxgkn.jpg",
+                    onClick() {
+                        alert("yooo")
+                    }
+                },
+        
+                {
+                    title: "DevOps",
+                    description: "Terminology related to OOP, inheritance, etc.",
+                    image: "https://res.cloudinary.com/dbdtfa9qb/image/upload/v1634247744/interview-prep/01_DevSecOps-DevSecOps-1-scaled-e1624558766799_q36w7w.jpg",
+                    onClick() {
+                        alert("yooo")
+                    }
+                },
+        
+               
+        
+                {
+                    title: "Data",
+                    description: "Terminology related to OOP, inheritance, etc.",
+                    image: "https://res.cloudinary.com/dbdtfa9qb/image/upload/v1634247746/interview-prep/franki-chamaki-z4H9MYmWIMA-unsplash_urblp2.jpg",
+                    onClick() {
+                        alert("yooo")
+                    }
+                },
+        
+                {
+                    title: "Databases",
+                    description: "Terminology related to OOP, inheritance, etc.",
+                    image: "https://res.cloudinary.com/dbdtfa9qb/image/upload/v1634247744/interview-prep/2135-database_management_software_vtjswv.webp",
+                    onClick() {
+                        alert("yooo")
+                    }
+                },
+        
+                {
+                    title: "Functional programming",
+                    description: "Terminology related to OOP, inheritance, etc.",
+                    image: "https://res.cloudinary.com/dbdtfa9qb/image/upload/v1634249796/interview-prep/lambda_hh1hxp.jpg",
+                    onClick() {
+                        alert("yooo")
+                    }
+                },
+        
+            ])
+        
+        
+        return () => {
+            
+        }
+    }, [])
+    
     return (
         <div className={styles.container}>
             {categories.map(category => 
