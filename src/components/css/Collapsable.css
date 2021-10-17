@@ -1,26 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;1,200;1,300;1,400&display=swap');
+
+
+.container {
+    display: flex;
+  font-family: "Poppins", sans-serif;
+
+    justify-content: center;
+    /* width: 100%; */
+    /* flex-direction: row; */
+    flex-wrap: wrap;
+}
+
+.small {
+    display: flex;
+    width:70%;
+    align-self: center;
+    text-transform: uppercase;	
+    font-weight: bold;
+    letter-spacing: 1px;
+    flex-direction: row;
+    
+
+}
+
 .Collapsible
 {
-    background: rgb(255, 255, 255);
+    background: rgb(253, 253, 253);
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     /* align-items: centers; */
-    width: 35%;
+    width: 100%;
     text-align: center;
     /* align-self: center; */
-    border-radius: 5px;
-    margin: 40px;
-    border: 1px green solid;
+    margin: 20px;
+    border: 2px rgb(255, 145, 0) solid;
 }
 
 .Collapsible__trigger {
-    border-radius: 5px;
-
+    /* border-radius: 5px; */
+    /* border-radius: 30px; */
+    margin: 5px;
+color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 1.5vw;
     text-align: center;
-    background: lightgreen;
+    background: rgb(250, 142, 0);
     height: 7vh;
 }

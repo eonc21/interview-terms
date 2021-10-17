@@ -59,8 +59,6 @@ export const CategoryList = (props: CategoryListProps) => {
                                 console.log(data)
                             })
                             .catch(err => console.error(err));
-                        
-
                     }
                 },
         
@@ -78,7 +76,14 @@ export const CategoryList = (props: CategoryListProps) => {
                     description: "Terminology related to OOP, inheritance, etc.",
                     image: "https://res.cloudinary.com/dbdtfa9qb/image/upload/v1634247749/interview-prep/christian-wiediger-8WFcelVBOoI-unsplash_dmxgkn.jpg",
                     onClick() {
-                        alert("yooo")
+                        fetch('http://localhost:3001/interview-prep/api/terms/Hardware')
+                            .then(response => response.json())
+                            .then(data =>{
+                                setTerms(data)
+                                
+                                console.log(data)
+                            })
+                            .catch(err => console.error(err));
                     }
                 },
         

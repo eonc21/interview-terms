@@ -10,7 +10,7 @@ interface Props {
 
 export default function Collapsable({term, explanation}: Props): ReactElement {
     return (
-        <div>
+        <div className="small">
             <Collapsible trigger={term}>
             <p>
                 {explanation}

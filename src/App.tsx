@@ -16,15 +16,6 @@ const Home = () => {
     <div className="App">
       <Title text="Interview Preparation" />
         <CategoryList />
-
-        {/* <div className="terms">
-        <Collapsable />
-        <Collapsable />
-        <Collapsable />
-        <Collapsable />
-        <Collapsable />
-            <Collapsable />
-        </div> */}
     </div>
   )
 
